@@ -1,7 +1,7 @@
-package cn.lw.mybatis.autoenum.handler;
+package com.github.haerxiong.mybatis.autoenum.handler;
 
 import cn.hutool.core.util.ClassUtil;
-import cn.lw.mybatis.autoenum.core.DbEnum;
+import com.github.haerxiong.mybatis.autoenum.core.DbEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedTypes;

@@ -1,4 +1,4 @@
-package cn.lw.mybatis.autoenum.core;
+package com.github.haerxiong.mybatis.autoenum.core;
 
 public interface DbEnum<E extends Enum<?>, T> {
 

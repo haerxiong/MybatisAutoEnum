@@ -1,22 +1,23 @@
-package cn.lw.mybatis.autoenum.common;
+package com.github.haerxiong.mybatis.autoenum.common;
 
-import cn.lw.mybatis.autoenum.core.DbEnum;
 
-public enum CommonYesNoEnum implements DbEnum {
+import com.github.haerxiong.mybatis.autoenum.core.DbEnum;
+
+public enum CommonSexEnum implements DbEnum {
 
     /**
-     * 是
+     * 男
      */
-    YES("1", "是"),
+    MALE("male", "男"),
     /**
-     * 否
+     * 女
      */
-    NO("0", "否");
+    FEMALE("female", "女");
 
     private final String code;
     private final String name;
 
-    CommonYesNoEnum(String code, String name) {
+    CommonSexEnum(String code, String name) {
         this.code = code;
         this.name = name;
     }

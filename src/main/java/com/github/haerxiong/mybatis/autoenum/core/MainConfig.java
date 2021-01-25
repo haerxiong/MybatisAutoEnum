@@ -1,6 +1,6 @@
-package cn.lw.mybatis.autoenum.core;
+package com.github.haerxiong.mybatis.autoenum.core;
 
-import cn.lw.mybatis.autoenum.handler.DbEnumHandler;
+import com.github.haerxiong.mybatis.autoenum.handler.DbEnumHandler;
 import org.apache.ibatis.type.TypeHandler;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
 import org.springframework.beans.BeansException;
@@ -20,7 +20,7 @@ public class MainConfig implements BeanPostProcessor {
     @Value("${lw.mybatis.enumPackage}")
     String enumPackage;
 
-    public static final String HANDLER_PACKAGE = "cn.lw.handler";
+    public static final String HANDLER_PACKAGE = "com.github.haerxiong.mybatis.autoenum.handler";
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
