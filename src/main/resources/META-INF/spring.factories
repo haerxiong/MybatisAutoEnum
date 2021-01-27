@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.lw.mybatis.autoenum.core.MainConfig
+  com.github.haerxiong.mybatis.autoenum.core.MainConfig

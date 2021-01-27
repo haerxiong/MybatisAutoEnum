@@ -12,7 +12,7 @@
 
     <groupId>com.github.haerxiong</groupId>
     <artifactId>autoenum-spring-boot-starter</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <licenses>
         <license>
@@ -23,9 +23,9 @@
     </licenses>
     <scm>
         <tag>master</tag>
-        <url>git@github.com:haerxiong/MybatisAutoEnum.git</url>
-        <connection>scm:git:git@github.com:haerxiong/MybatisAutoEnum.git</connection>
-        <developerConnection>scm:git:git@github.com:haerxiong/MybatisAutoEnum.git</developerConnection>
+        <url>https://github.com/haerxiong/MybatisAutoEnum.git</url>
+        <connection>scm:git:https://github.com/haerxiong/MybatisAutoEnum.git</connection>
+        <developerConnection>scm:git:https://github.com/haerxiong/MybatisAutoEnum.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -53,13 +53,5 @@
             <version>5.4.0</version>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>20210125</id>
-            <name>20210125</name>
-            <url>file://${project.basedir}/maven-repo</url>
-        </repository>
-    </distributionManagement>
 
 </project>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 
 /**
  * MybatisProperties后置处理器，配置MyBatis的枚举处理器typeHandle
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass({TypeHandler.class, MybatisProperties.class})
 public class MainConfig implements BeanPostProcessor {
 
-    @Value("${lw.mybatis.enumPackage}")
+    @Value("${lw.mybatis.enumPackage:null}")
     String enumPackage;
 
     public static final String HANDLER_PACKAGE = "com.github.haerxiong.mybatis.autoenum.handler";
@@ -25,6 +26,9 @@ public class MainConfig implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof MybatisProperties) {
+            if (!StringUtils.hasText(enumPackage)) {
+                enumPackage = getMainClassPackage();
+            }
             DbEnumHandler.enumPackage = enumPackage;
             MybatisProperties properties = (MybatisProperties) bean;
             String src = properties.getTypeHandlersPackage();
@@ -37,5 +41,20 @@ public class MainConfig implements BeanPostProcessor {
             properties.setTypeHandlersPackage(src);
         }
         return bean;
+    }
+
+    /**
+     * 获取main方法启动类所在的包
+     * @return
+     */
+    public static String getMainClassPackage() {
+        StackTraceElement[] stackTraceElements = new RuntimeException().getStackTrace();
+        for (StackTraceElement stackTraceElement : stackTraceElements) {
+            if ("main".equals(stackTraceElement.getMethodName())) {
+                String mainClassName = stackTraceElement.getClassName();
+                return mainClassName.substring(0, mainClassName.lastIndexOf("."));
+            }
+        }
+        return "";
     }
 }
